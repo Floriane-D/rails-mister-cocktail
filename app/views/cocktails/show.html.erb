@@ -1,4 +1,13 @@
 <h1><%= @cocktail.name %></h1>
 
+<% if @cocktail.doses.nil? === false %>
+  <h3> Doses: </h3>
+  <% @cocktail.doses.each do |dose| %>
+    <p><%= dose.description %> of <%= dose.ingredient.name %></p>
+  <% end %>
+<% end %>
+
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary"%>
+
 <p><%= link_to "back to list", cocktails_path %></p>
 
